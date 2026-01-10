@@ -1,0 +1,43 @@
+.hero {
+  width: 100%;
+  height: calc(100vh - 88px);
+  background-image: url("/images/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.overlay {
+  margin-left: 64px;
+  max-width: 600px;
+  color: #ffffff;
+}
+
+.overlay h1 {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.overlay p {
+  font-size: 20px;
+  margin-bottom: 32px;
+}
+
+.button {
+  display: inline-block;
+  background: #e44848;
+  color: white;
+  padding: 16px 40px;
+  border-radius: 200px;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.button:hover {
+  background: #d84343;
+}

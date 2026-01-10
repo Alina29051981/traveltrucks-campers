@@ -1,0 +1,23 @@
+.page {
+    padding: 24px;
+}
+
+.layout {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    flex: 1;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: #101828;
+}

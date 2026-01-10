@@ -1,0 +1,56 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 64px;
+    /* відступи згідно макету */
+    background: #ffffff;
+    border-bottom: 1px solid #f2f2f2;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    /* центроване обмеження */
+    margin: 0 auto;
+}
+
+.logoBox {
+    display: flex;
+    align-items: center;
+}
+
+.logoLink {
+    display: inline-block;
+}
+
+.logo {
+    width: 135px;
+    /* ширина логотипу */
+    height: 40px;
+    /* висота логотипу */
+    display: block;
+}
+
+.nav {
+    display: flex;
+    gap: 32px;
+    /* відстань між посиланнями */
+}
+
+.nav a {
+    text-decoration: none;
+    color: #101828;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.nav a:hover {
+    color: #e44848;
+    /* hover ефект */
+}

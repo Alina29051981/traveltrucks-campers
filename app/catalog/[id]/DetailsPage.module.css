@@ -1,0 +1,123 @@
+.page {
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 600;
+    color: #101828;
+}
+
+.ratingLocation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    color: #101828;
+}
+
+.stars {
+    color: #f2c94c;
+}
+
+.location {
+    font-size: 16px;
+    color: #475467;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: 600;
+    color: #101828;
+}
+
+.description {
+    font-size: 16px;
+    color: #475467;
+    line-height: 1.5;
+}
+
+/* Двоколонковий layout */
+.detailsLayout {
+    display: flex;
+    gap: 32px;
+}
+
+/* Ліва колонка - вкладки */
+.leftColumn {
+    flex: 2;
+}
+
+/* Права колонка - Book now */
+.rightColumn {
+    flex: 1;
+    position: sticky;
+    top: 80px;
+    height: max-content;
+}
+
+/* Таби */
+.tabs {
+    display: flex;
+    gap: 16px;
+    border-bottom: 1px solid #d0d5dd;
+}
+
+.tabButton {
+    background: none;
+    border: none;
+    padding: 12px 16px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #667085;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.tabButton:hover {
+    color: #101828;
+}
+
+.activeTab {
+    color: #101828;
+    border-color: #e44848;
+}
+
+.tabContent {
+    margin-top: 16px;
+}
+
+.bookBtn {
+    width: 100%;
+    height: 52px;
+    background: #e44848;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.bookBtn:hover {
+    background: #d73737;
+}
+
+.message {
+    font-size: 16px;
+    color: #888;
+}

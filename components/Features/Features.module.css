@@ -1,0 +1,49 @@
+.sectionTitle {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #101828;
+}
+
+.vehicleFeatures {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.featureItem {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border-radius: 12px;
+    background: #fff5f5;
+    border: 1px solid #e44848;
+    color: #e44848;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+}
+
+.specs {
+    margin-bottom: 16px;
+    color: #475467;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.featuresList {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.featureText {
+    font-size: 14px;
+    color: #475467;
+}

@@ -1,0 +1,157 @@
+.filters {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* ---------- Blocks ---------- */
+
+.block {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #101828;
+}
+
+/* ---------- Groups ---------- */
+
+.equipment,
+.types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* ---------- Buttons ---------- */
+
+.equipmentItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid #d0d5dd;
+    background: white;
+    cursor: pointer;
+    font-size: 14px;
+    min-width: 90px;
+    color: #101828;
+
+    transition: all 0.2s ease;
+}
+
+.typeItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 14px 10px;
+    border-radius: 12px;
+    border: 1px solid #d0d5dd;
+    background: white;
+    cursor: pointer;
+    font-size: 14px;
+    min-width: 90px;
+    color: #101828;
+
+    transition: all 0.2s ease;
+}
+
+/* ---------- Icons ---------- */
+
+.icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    display: inline-block;
+    fill: currentColor;
+    stroke: currentColor;
+}
+
+/* ---------- Active ---------- */
+
+.active {
+    border-color: #e44848;
+    background: white;
+    color: #101828;
+}
+
+/* ---------- Search button ---------- */
+
+.searchBtn {
+    align-self: flex-start;
+    background: #e44848;
+    color: white;
+    padding: 14px 32px;
+    border-radius: 200px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.searchBtn:hover {
+    background: #d73737;
+    transform: scale(1.02);
+}
+
+.searchBtn:focus-visible {
+    box-shadow: 0 0 0 3px rgba(228, 72, 72, 0.3);
+}
+
+/* ---------- Input ---------- */
+.inputWrapper {
+    position: relative;
+    width: 100%;
+}
+
+.input {
+    width: 100%;
+    height: 48px;
+    padding: 0 14px 0 44px;
+    /* місце під іконку */
+    border-radius: 10px;
+    border: 1px solid #d0d5dd;
+    font-size: 14px;
+    outline: none;
+    color: #101828;
+    /* базовий колір тексту */
+    box-sizing: border-box;
+}
+
+.input:focus {
+
+    color: #000;
+    /* колір тексту при фокусі */
+}
+
+.locationIcon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    /* іконка бере колір з CSS */
+    pointer-events: none;
+    color: #667085;
+    /* базовий колір іконки */
+}
+
+.input:focus+.locationIcon,
+.inputWrapper:focus-within .locationIcon {
+    color: #000;
+    /* іконка змінює колір при фокусі інпуту */
+}

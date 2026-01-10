@@ -1,0 +1,28 @@
+.reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.review {
+    background: #f5f5f5;
+    padding: 12px;
+    border-radius: 12px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.comment {
+    font-size: 14px;
+}
+
+.noReviews {
+    font-size: 14px;
+    color: #888;
+}
