@@ -41,7 +41,7 @@ export default function CatalogPage() {
       setCampers((prev) => (append ? [...prev, ...data] : data));
       setHasMore(data.length === LIMIT);
 
-      // --- прокрутка вниз, якщо завантажуємо додатково
+      
       if (append && cardsRef.current) {
         setTimeout(() => {
           cardsRef.current?.lastElementChild?.scrollIntoView({

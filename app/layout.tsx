@@ -9,10 +9,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "TravelTrucks",
     description: "Camper rental web application",
-    url: "https://all-possible-front-production.up.railway.app",
+    url: "https://traveltrucks-campers-xi.vercel.app",
     images: [
       {
-        url: "https://all-possible-front-production.up.railway.app/images/auth-login-bg.png",
+        url: "https://traveltrucks-campers-xi.vercel.app/images/hero.jpg",
         width: 1200,
         height: 630,
         alt: "TravelTrucks",
