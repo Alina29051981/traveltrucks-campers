@@ -1,17 +1,20 @@
 .card {
     display: flex;
-    gap: 24px;
-    border: 1px solid #f2f4f7;
+    background: var(--white);
+    border: 1px solid var(--gray-light);
     border-radius: 20px;
     padding: 24px;
-    background: #fff;
+    width: 888px;
+    min-height: 368px;
+    flex-direction: row;
+    gap: 24px;
 }
 
 .image {
-    width: 290px;
-    height: 310px;
+    border-radius: 10px;
+    width: 292px;
+    height: 320px;
     object-fit: cover;
-    border-radius: 16px;
 }
 
 .content {
@@ -25,96 +28,181 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 8px;
 }
 
 .header h2 {
-    font-size: 24px;
+    font-family: var(--font-family);
     font-weight: 600;
+    font-size: 24px;
+    line-height: 1.33333;
+    color: var(--main);
 }
 
 .price {
-    font-size: 24px;
+    font-family: var(--font-family);
     font-weight: 600;
+    font-size: 24px;
+    line-height: 1.33333;
+    color: var(--main);
+    gap: 12px;
+}
+
+.grope {
+    display: flex;
+    gap: 12px;
 }
 
 .location {
-    color: #6c717b;
+    color: var(--gray);
     margin: 8px 0;
 }
 
 .description {
-    color: #475467;
+    color: var(--text);
     line-height: 1.4;
     margin-bottom: 16px;
 }
 
 .button {
+    display: flex;
     align-self: flex-start;
-    background: #e44848;
-    color: white;
-    padding: 12px 24px;
+    background: var(--button);
     border-radius: 200px;
+    width: 166px;
+    height: 56px;
+    color: var(--white);
+    padding: 16px 40px;
+    border: none;
+    outline: none;
     text-decoration: none;
+    font-family: var(--font-family);
     font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    color: var(--white);
     cursor: pointer;
-    transition: background 0.2s ease, transform 0.1s ease;
+    transition: 0.2s ease;
 }
 
 .button:hover {
-    background: #d84343;
+    background: var(--button-hover);
 }
 
 .priceFavorite {
     display: flex;
     align-items: center;
     gap: 8px;
-    /* відстань між ціною і сердечком */
 }
 
-/* Кнопка-сердечко */
 .favorite {
     background: none;
-    /* без фону */
     border: none;
-    /* без рамки */
     padding: 0;
-    /* без внутрішніх відступів */
     margin: 0;
-    /* без зовнішніх відступів */
     cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
 }
 
-/* SVG серце */
 .heartIcon {
-    width: 20px;
-    /* розмір серця */
-    height: 20px;
+    width: 26px;
+    height: 24px;
     display: block;
     transition: stroke 0.3s;
-    /* плавна зміна кольору */
+}
+
+.ratingBlock {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--main);
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--main);
+}
+
+.ratingValue {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--main);
+}
+
+.reviews {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--main);
+}
+
+.locationBlock {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--main);
+}
+
+.locationIcon {
+    width: 16px;
+    height: 16px;
+    fill: var(--main);
+}
+
+.locationText {
+    line-height: 1.2;
+}
+
+.description {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--text);
+    margin-top: 24px;
 }
 
 .features {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin: 8px 0;
+    gap: 8px 8px;
+    margin-bottom: 24px;
 }
 
 .feature {
-    background-color: #f2f4f7;
-    border-radius: 8px;
-    padding: 4px 8px;
-    font-size: 12px;
-    color: #333;
+    display: flex;
+    align-items: center;
+    border-radius: 100px;
+    height: 48px;
+    gap: 8px;
+    background: var(--badges);
+    padding: 12px 18px;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: var(--main);
 }
 
 .icon {
     width: 20px;
     height: 20px;
-    fill: currentColor;
     flex-shrink: 0;
+    fill: currentColor;
 }

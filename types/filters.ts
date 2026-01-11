@@ -7,4 +7,5 @@ export interface FiltersState {
   bathroom: boolean;
   kitchen: boolean;
   TV: boolean;
+  automatic?: boolean;
 }

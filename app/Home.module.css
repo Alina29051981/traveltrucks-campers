@@ -1,6 +1,6 @@
 .hero {
-  width: 100%;
-  height: calc(100vh - 88px);
+  width: 1440px;
+  height: 696px;
   background-image: url("/images/hero.jpg");
   background-size: cover;
   background-position: center;
@@ -10,34 +10,40 @@
 }
 
 .overlay {
+  font-family: var(--font-family);
+  font-weight: 600;
+  color: var(--inputs);
   margin-left: 64px;
-  max-width: 600px;
-  color: #ffffff;
 }
 
 .overlay h1 {
   font-size: 48px;
-  font-weight: 800;
+  line-height: 0.66667;
   margin-bottom: 16px;
 }
 
 .overlay p {
-  font-size: 20px;
-  margin-bottom: 32px;
+  font-size: 24px;
+  line-height: 1.33333;
+  margin-bottom: 40px;
 }
 
 .button {
   display: inline-block;
-  background: #e44848;
-  color: white;
-  padding: 16px 40px;
+  background: var(--button);
+  padding: 16px 60px;
   border-radius: 200px;
   text-decoration: none;
-  font-weight: 600;
   cursor: pointer;
   transition: 0.2s;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--white);
 }
 
 .button:hover {
-  background: #d84343;
+  background: var(--button-hover);
 }

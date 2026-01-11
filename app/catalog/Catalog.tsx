@@ -1,52 +1,74 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useEffect, useState, useRef } from "react";
 import styles from "./CatalogPage.module.css";
 import CamperCard from "@/components/CamperCard/CamperCard";
 import Filters from "@/components/Filters/Filters";
-import { Camper } from "@/types/camper";
-import { FiltersState } from "@/types/filters";
+import { CamperFilters } from "@/types/camper";
 import { fetchCampers } from "@/services/campersApi";
 
-interface CatalogPageProps {
-  initialCampers: Camper[];
-  initialFilters: FiltersState;
-}
+const LIMIT = 4;
 
-export default function CatalogPage({ initialCampers, initialFilters }: CatalogPageProps) {
-  const [campers, setCampers] = useState<Camper[]>(initialCampers);
-  const [filters, setFilters] = useState<FiltersState>(initialFilters);
+const initialFilters: CamperFilters = {
+  location: "",
+  form: undefined,
+  AC: false,
+  bathroom: false,
+  kitchen: false,
+  TV: false,
+};
+
+export default function CatalogPage() {
+  const [campers, setCampers] = useState<any[]>([]);
+  const [filters, setFilters] = useState<CamperFilters>(initialFilters);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [page, setPage] = useState(1);
-  const [hasMore, setHasMore] = useState(initialCampers.length > 0);
 
-  // Використовуємо useCallback, щоб не створювати нову функцію на кожен ререндер
-  const loadCampers = useCallback(async (filtersToUse: FiltersState, pageToLoad = 1, append = false) => {
+  const cardsRef = useRef<HTMLDivElement>(null); 
+
+  const loadCampers = async (
+    filtersToUse: CamperFilters,
+    pageToLoad: number,
+    append = false
+  ) => {
     setLoading(true);
     setError("");
-    try {
-      const data = await fetchCampers(filtersToUse, pageToLoad, 4);
-      if (append) setCampers(prev => [...prev, ...data]);
-      else setCampers(data);
 
-      setHasMore(data.length === 4); // якщо менше 4 — більше сторінок немає
-    } catch {
+    try {
+      const data = await fetchCampers(filtersToUse, pageToLoad, LIMIT);
+      setCampers((prev) => (append ? [...prev, ...data] : data));
+      setHasMore(data.length === LIMIT);
+
+      // --- прокрутка вниз, якщо завантажуємо додатково
+      if (append && cardsRef.current) {
+        setTimeout(() => {
+          cardsRef.current?.lastElementChild?.scrollIntoView({
+            behavior: "smooth",
+          });
+        }, 100);
+      }
+    } catch (e: any) {
+      console.error(e);
       setError("Не вдалося завантажити кемпери");
-      setCampers([]);
+      if (!append) setCampers([]);
       setHasMore(false);
     } finally {
       setLoading(false);
     }
-  }, []);
-
-  // Запуск запиту лише при натисканні кнопки Search
-  const handleSearch = () => {
-    setPage(1);
-    loadCampers(filters, 1, false);
   };
 
-  // Load more — лише при натисканні
+  useEffect(() => {
+    loadCampers(filters, 1, false);
+  }, []);
+
+  const handleSearch = (newFilters: CamperFilters) => {
+    setFilters(newFilters);
+    setPage(1);
+    loadCampers(newFilters, 1, false);
+  };
+
   const handleLoadMore = () => {
     const nextPage = page + 1;
     setPage(nextPage);
@@ -55,32 +77,28 @@ export default function CatalogPage({ initialCampers, initialFilters }: CatalogP
 
   return (
     <main className={styles.container}>
-      <h1>Каталог кемперів</h1>
-
-      <Filters
-        filters={filters}
-        onChange={setFilters}   // зміни фільтру відображаються локально
-        onSearch={handleSearch} // запит йде лише тут
-      />
-
-      {loading && <p>Завантаження кемперів...</p>}
-      {error && <p className={styles.error}>{error}</p>}
-
-      {!loading && campers.length > 0 && (
-        <div className={styles.cards}>
-          {campers.map(camper => (
-            <CamperCard key={camper.id} camper={camper} />
-          ))}
+      <div className={styles.layout}>
+        <div className={styles.filtersWrapper}>
+          <Filters filters={filters} onChange={setFilters} onSearch={handleSearch} />
         </div>
-      )}
 
-      {!loading && campers.length === 0 && !error && <p>Кемпери не знайдені.</p>}
+        <div className={styles.cards} ref={cardsRef}>
+          {loading && <p>Loading campers...</p>}
+          {error && <p className={styles.error}>{error}</p>}
 
-      {!loading && hasMore && campers.length > 0 && (
-        <button className={styles.loadMoreBtn} onClick={handleLoadMore}>
-          Load More
-        </button>
-      )}
+          {!loading && campers.length > 0 &&
+            campers.map((camper) => <CamperCard key={camper.id} camper={camper} />)
+          }
+
+          {!loading && campers.length === 0 && !error && <p>Nothing found.</p>}
+
+          {!loading && hasMore && campers.length > 0 && (
+            <button className={styles.loadMoreBtn} onClick={handleLoadMore}>
+              Load More
+            </button>
+          )}
+        </div>
+      </div>
     </main>
   );
 }

@@ -1,49 +1,68 @@
-.sectionTitle {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 12px;
-    color: #101828;
+.container {
+    border-radius: 10px;
+    width: 631px;
+    background: var(--inputs);
 }
 
-.vehicleFeatures {
+.featuresWrapper {
+    width: 527px;
+    height: 104px;
+    border-radius: 10px;
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 16px;
+    gap: 8px;
+    margin-bottom: 100px;
 }
 
 .featureItem {
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 8px 12px;
-    border-radius: 12px;
-    background: #fff5f5;
-    border: 1px solid #e44848;
-    color: #e44848;
-    font-size: 14px;
+    gap: 8px;
+    padding: 12px 18px;
+    border-radius: 100px;
+    background: var(--badges);
+    font-family: var(--font-family);
     font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: var(--main);
+    height: 48px;
 }
 
-.icon {
-    width: 16px;
-    height: 16px;
+.featureIcon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+.sectionLine {
+    border: none;
+    height: 1px;
+    background-color: var(--gray-light);
+    margin: 24px 0;
 }
 
 .specs {
-    margin-bottom: 16px;
-    color: #475467;
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-.featuresList {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 16px;
 }
 
-.featureText {
-    font-size: 14px;
-    color: #475467;
+.specRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+
+.specLabel,
+.specValue {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: var(--main);
 }

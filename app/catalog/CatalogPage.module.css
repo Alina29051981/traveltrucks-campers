@@ -19,5 +19,28 @@
     font-size: 32px;
     font-weight: 600;
     margin-bottom: 24px;
-    color: #101828;
+    color: var(--main);
+}
+
+.loadMoreBtn {
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    border: 1px solid var(--gray-light);
+    border-radius: 200px;
+    width: 145px;
+    height: 56px;
+
+    background-color: var(--white);
+    cursor: pointer;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    color: var(--main);
+}
+
+.loadMoreBtn:hover {
+    border: 1px solid var(--button-hover);
 }

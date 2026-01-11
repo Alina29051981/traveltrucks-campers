@@ -1,54 +1,114 @@
 import { create } from "zustand";
-import { Camper } from "@/types/camper";
-import { api } from "@/services/api";
+import { Camper, CamperFilters } from "@/types/camper";
+import { fetchCampers, clearCampersCache } from "@/services/campersApi";
+
+const initialFilters: CamperFilters = {
+  location: "",
+  form: undefined,
+  AC: false,
+  kitchen: false,
+  bathroom: false,
+  TV: false,
+};
 
 interface CampersState {
   campers: Camper[];
   selectedCamper: Camper | null;
+
+  filters: CamperFilters;
+  page: number;
+  limit: number;
+  hasMore: boolean;
+
   isLoading: boolean;
   error: string | null;
 
-  setCampers: (campers: Camper[]) => void;
-  setLoading: (loading: boolean) => void;   
-  setError: (error: string | null) => void; 
-
-  fetchCampers: () => Promise<void>;
+  setFilters: (filters: CamperFilters) => Promise<void>;
+  loadMore: () => Promise<void>;
   fetchCamperById: (id: string) => Promise<void>;
+  resetCatalog: () => void;
 }
 
-export const useCampersStore = create<CampersState>((set) => ({
+export const useCampersStore = create<CampersState>((set, get) => ({
   campers: [],
   selectedCamper: null,
+
+  filters: initialFilters,
+  page: 1,
+  limit: 4,
+  hasMore: true,
+
   isLoading: false,
   error: null,
 
-  setCampers: (campers) => set({ campers }),
-  setLoading: (loading) => set({ isLoading: loading }),
-  setError: (error) => set({ error }),
-
-  fetchCampers: async () => {
+  setFilters: async (filters) => {
     set({ isLoading: true, error: null });
+    clearCampersCache();
+
     try {
-      const response = await api.get<Camper[]>("/campers");
-      set({ campers: response.data });
-    } catch (err) {
-      console.error(err);
-      set({ error: "Failed to load campers", campers: [] });
+      const campers = await fetchCampers(filters, 1, get().limit);
+      set({
+        filters,
+        campers,
+        page: 1,
+        hasMore: campers.length === get().limit,
+      });
+    } catch {
+      set({ error: "Failed to load campers" });
+    } finally {
+      set({ isLoading: false });
+    }
+  },
+
+  loadMore: async () => {
+    const { page, filters, campers, limit, isLoading, hasMore } = get();
+    if (isLoading || !hasMore) return;
+
+    set({ isLoading: true });
+
+    try {
+      const nextPage = page + 1;
+      const newCampers = await fetchCampers(filters, nextPage, limit);
+
+      set({
+        campers: [...campers, ...newCampers],
+        page: nextPage,
+        hasMore: newCampers.length === limit,
+      });
+    } catch {
+      set({ error: "Failed to load more campers" });
     } finally {
       set({ isLoading: false });
     }
   },
 
   fetchCamperById: async (id: string) => {
-    set({ isLoading: true, error: null });
+    set({ isLoading: true, error: null, selectedCamper: null });
+
     try {
-      const { data } = await api.get<Camper>(`/campers/${id}`);
+      const res = await fetch(
+        `https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers/${id}`
+      );
+
+      if (!res.ok) throw new Error("Failed");
+
+      const data = await res.json();
       set({ selectedCamper: data });
-    } catch (err) {
-      console.error(err);
-      set({ error: "Failed to load camper", selectedCamper: null });
+    } catch {
+      set({ error: "Failed to load camper" });
     } finally {
       set({ isLoading: false });
     }
+  },
+
+  resetCatalog: () => {
+    clearCampersCache();
+    set({
+      campers: [],
+      filters: initialFilters,
+      page: 1,
+      hasMore: true,
+      error: null,
+    });
   },
 }));
