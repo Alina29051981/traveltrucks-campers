@@ -6,6 +6,7 @@ import CamperCard from "@/components/CamperCard/CamperCard";
 import Filters from "@/components/Filters/Filters";
 import { CamperFilters } from "@/types/camper";
 import { fetchCampers } from "@/services/campersApi";
+import { useFavoritesStore } from "@/store/favoritesStore"; // ✅ ДОДАЛИ
 
 const LIMIT = 4;
 
@@ -26,6 +27,8 @@ export default function CatalogPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  const { hydrate } = useFavoritesStore(); // ✅ ДОДАЛИ
+
   const cardsRef = useRef<HTMLDivElement>(null); 
 
   const loadCampers = async (
@@ -41,7 +44,6 @@ export default function CatalogPage() {
       setCampers((prev) => (append ? [...prev, ...data] : data));
       setHasMore(data.length === LIMIT);
 
-      
       if (append && cardsRef.current) {
         setTimeout(() => {
           cardsRef.current?.lastElementChild?.scrollIntoView({
@@ -60,6 +62,7 @@ export default function CatalogPage() {
   };
 
   useEffect(() => {
+    hydrate(); // ✅ ДОДАЛИ
     loadCampers(filters, 1, false);
   }, []);
 
