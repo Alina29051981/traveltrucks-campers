@@ -7,12 +7,12 @@ Users can browse available campers, filter them based on preferences, view detai
 
 ## Features
 
-- Camper catalog with filters
-- Backend pagination
-- Favorites
-- Camper details page
-- Booking form
-- Reviews
+- Camper catalog with backend filtering
+- Infinite scroll pagination (Load More)
+- Camper details page with gallery and reviews
+- Favorites functionality
+- Booking form with notification
+- Responsive UI based on Figma design
 
 ## Tech stack
 
