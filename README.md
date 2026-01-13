@@ -2,7 +2,8 @@
 
 ## Description
 
-Frontend web app for camper rental service.
+TravelTrucks is a frontend web application for a camper rental service.  
+Users can browse available campers, filter them based on preferences, view detailed information, and make bookings.
 
 ## Features
 
