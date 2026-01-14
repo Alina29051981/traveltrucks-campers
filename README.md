@@ -14,6 +14,12 @@ Users can browse available campers, filter them based on preferences, view detai
 - Booking form with notification
 - Responsive UI based on Figma design
 
+## Pages
+
+- `/` — Home page with CTA banner
+- `/catalog` — Camper catalog with filters and pagination
+- `/catalog/[camperId]` — Camper details page with full info, reviews, and booking form
+
 ## Tech stack
 
 Next.js, TypeScript, Zustand, Axios
