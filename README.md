@@ -22,7 +22,12 @@ Users can browse available campers, filter them based on preferences, view detai
 
 ## Tech stack
 
-Next.js, TypeScript, Zustand, Axios
+- Next.js (App Router)
+- TypeScript
+- TanStack Query (useInfiniteQuery)
+- Zustand (state management)
+- Axios (API requests)
+- CSS Modules (styling)
 
 ## Installation
 
