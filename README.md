@@ -29,10 +29,21 @@ Users can browse available campers, filter them based on preferences, view detai
 - Axios (API requests)
 - CSS Modules (styling)
 
-## Installation
+## Installation & Run
 
+```bash
+git clone https://github.com/your-username/traveltrucks-campers.git
+cd traveltrucks-campers
 npm install
 npm run dev
+```
+
+## Demo
+
+```
+Live site: https://traveltrucks-campers-xi.vercel.app/
+Repository: https://github.com/Alina29051981/traveltrucks-campers
+```
 
 ## Author
 
