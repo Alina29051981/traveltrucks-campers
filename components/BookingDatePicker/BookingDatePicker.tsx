@@ -2,6 +2,7 @@
 
 import { useState, useEffect, forwardRef } from "react";
 import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import styles from "./BookingDatePicker.module.css";
 
 interface BookingDateInputProps {
