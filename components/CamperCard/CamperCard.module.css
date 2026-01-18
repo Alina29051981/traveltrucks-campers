@@ -12,9 +12,8 @@
 
 .image {
     border-radius: 10px;
-    width: 292px;
-    height: 320px;
     object-fit: cover;
+    object-position: center center;
 }
 
 .content {
@@ -45,7 +44,6 @@
     font-size: 24px;
     line-height: 1.33333;
     color: var(--main);
-    gap: 12px;
 }
 
 .grope {
@@ -56,12 +54,6 @@
 .location {
     color: var(--gray);
     margin: 8px 0;
-}
-
-.description {
-    color: var(--text);
-    line-height: 1.4;
-    margin-bottom: 16px;
 }
 
 .button {
@@ -88,12 +80,6 @@
 
 .button:hover {
     background: var(--button-hover);
-}
-
-.priceFavorite {
-    display: flex;
-    align-items: center;
-    gap: 8px;
 }
 
 .favorite {
@@ -182,6 +168,9 @@
     flex-wrap: wrap;
     gap: 8px 8px;
     margin-bottom: 24px;
+    list-style: none;
+    padding: 0;
+    margin-left: 0;
 }
 
 .feature {
