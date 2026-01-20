@@ -45,6 +45,17 @@ Live site: https://traveltrucks-campers-xi.vercel.app/
 Repository: https://github.com/Alina29051981/traveltrucks-campers
 ```
 
+## Functionality Details
+
+### Filters
+
+Users can filter campers by:
+
+Location
+Body type
+Engine type
+Transmission
+
 ## Author
 
 Alina Kuchma
