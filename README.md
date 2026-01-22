@@ -62,6 +62,12 @@ Users can filter campers by:
 - Loads 4 campers per request
 - Supports active filters
 
+### Camper Details
+
+- Image gallery (Swiper)
+- Reviews with 5-star rating
+- Booking form with success notification
+
 ## Author
 
 Alina Kuchma
