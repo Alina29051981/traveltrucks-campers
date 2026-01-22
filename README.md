@@ -68,6 +68,16 @@ Users can filter campers by:
 - Reviews with 5-star rating
 - Booking form with success notification
 
+### Loader
+
+Loader is displayed during data fetching.
+
+## Deployment
+
+The project is deployed on Vercel.
+
 ## Author
 
 Alina Kuchma
+
+Junior Front-end Developer
