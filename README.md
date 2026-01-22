@@ -51,10 +51,16 @@ Repository: https://github.com/Alina29051981/traveltrucks-campers
 
 Users can filter campers by:
 
-Location
-Body type
-Engine type
-Transmission
+- Location
+- Body type
+- Engine type
+- Transmission
+
+### Pagination
+
+- Implemented using useInfiniteQuery
+- Loads 4 campers per request
+- Supports active filters
 
 ## Author
 
