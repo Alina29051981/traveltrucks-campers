@@ -2,8 +2,8 @@
 
 ## Description
 
-TravelTrucks is a frontend web application for a camper rental service.  
-Users can browse available campers, filter them based on preferences, view detailed information, and make bookings.
+TravelTrucks is a modern frontend web application for a camper rental service, built with Next.js and TypeScript.  
+It allows users to explore available campers, apply filters, view detailed information, and book campers online.
 
 ## Features
 
@@ -13,6 +13,8 @@ Users can browse available campers, filter them based on preferences, view detai
 - Favorites functionality
 - Booking form with notification
 - Responsive UI based on Figma design
+- Loader during data fetching
+- Clean and intuitive UI
 
 ## Pages
 
@@ -22,17 +24,19 @@ Users can browse available campers, filter them based on preferences, view detai
 
 ## Tech stack
 
-- Next.js (App Router)
-- TypeScript
+- ![Next.js](https://img.shields.io/badge/Next.js-13-black) (App Router)
+- ![TypeScript](https://img.shields.io/badge/TypeScript-blue)
 - TanStack Query (useInfiniteQuery)
 - Zustand (state management)
 - Axios (API requests)
 - CSS Modules (styling)
 
+  ![Status](https://img.shields.io/badge/status-active-success)
+
 ## Installation & Run
 
 ```bash
-git clone https://github.com/your-username/traveltrucks-campers.git
+git clone https://github.com/Alina29051981/traveltrucks-campers.git
 cd traveltrucks-campers
 npm install
 npm run dev
@@ -40,10 +44,8 @@ npm run dev
 
 ## Demo
 
-```
-Live site: https://traveltrucks-campers-xi.vercel.app/
-Repository: https://github.com/Alina29051981/traveltrucks-campers
-```
+- Live site: https://traveltrucks-campers-xi.vercel.app/
+- Repository: https://github.com/Alina29051981/traveltrucks-campers
 
 ## Functionality Details
 
